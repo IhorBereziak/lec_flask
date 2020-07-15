@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block css_js_links %}
+    <link rel="stylesheet" href="{{ url_for('posts.static', filename = 'css/style.css') }}">
+{% endblock %}
+
+{% block title %}
+    <title>Posts Page | My APP</title>
+{% endblock %}
+
+{% block title_content %}
+    all Posts Page
+{% endblock %}
+
+{% block content %}
+{% for post in posts %}
+    <div>
+        title = {{ post.title }}
+        text = {{ post.text }}
+    </div>
+{% endfor %}
+
+{% endblock %}
