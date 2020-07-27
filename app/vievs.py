@@ -13,3 +13,5 @@ def search():
     if request.method == 'POST':
         result = request.form['search']
     return render_template('search.html', search=result)
+
+
