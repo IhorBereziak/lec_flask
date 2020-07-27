@@ -9,21 +9,21 @@
 {% endblock %}
 
 {% block title_content %}
-    all Posts Page
+    new Posts Page
 {% endblock %}
 
 {% block content %}
-    {% for post in posts %}
-        <div>
-            title = {{ post.title }}
-            text = {{ post.text }}
-            tag = [
-            {% for tag in post.tag %}
-                {{ tag.name }}
-            {% endfor %}
-
-            ]
-        </div>
+    <form method="POST">
+        {% for field in form %}
+            <div>
+                {{ field.label }}
+                {{ field }}
+            </div>
+        {% endfor %}
+        <button type="submit">send</button>
+    </form>
+    {% for tag in tags %}
+        <div>{{ tag.name }}</div>
     {% endfor %}
-
+    
 {% endblock %}

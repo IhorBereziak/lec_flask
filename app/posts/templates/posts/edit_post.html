@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block css_js_links %}
+    <link rel="stylesheet" href="{{ url_for('posts.static', filename = 'css/style.css') }}">
+{% endblock %}
+
+{% block title %}
+    <title>Posts Page | My APP</title>
+{% endblock %}
+
+{% block title_content %}
+    new Posts Page
+{% endblock %}
+
+{% block content %}
+    <div>
+        title = {{ name }}
+    </div>
+    <div>
+        text = {{ mail }}
+    </div>
+    <form action="/posts/edit/{{post.title}}" method="POST">
+        {% for field in form %}
+            <div>
+                {{ field.label }}
+                {{ field }}
+            </div>
+        {% endfor %}
+        <button type="submit">send</button>
+    </form>
+    title = {{ post.title }} <br>
+    text = {{ post.text }} <br>
+    title = {{ post.title }}
+    tag = [
+    {% for tag in post.tag %}
+        {{ tag.name }},
+    {% endfor %}
+{% endblock %}
